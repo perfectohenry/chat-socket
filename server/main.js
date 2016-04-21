@@ -11,9 +11,9 @@ var messages = [{
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-	res.status(200).send("Hello World!");
-});
+//app.get('/', function(req, res) {
+//	res.status(200).send("Hello World!");
+//});
 
 io.on('connection', function(socket) {
 	console.log('Alguien se ha conectado con Sockets');

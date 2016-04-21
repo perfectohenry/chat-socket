@@ -8,9 +8,9 @@ socket.on('messages', function(data) {
 
 function render (data) {
 	var html = data.map(function(element, index) {
-		return(`<div>
+		return(`<div class="user-msg">
 					<strong>${element.author}</strong>:
-					<em>${element.text}</em>
+					${element.text}
 				</div>`);
 	}).join(" ");
 	document.getElementById('messages').innerHTML = html;
@@ -21,6 +21,7 @@ function addMessage(event) {
 		author: document.getElementById('username').value,
 		text: document.getElementById('text').value
 	};
+	document.getElementById('text').value = "";
 
 	socket.emit('send-message', payload);
 	return false;
